@@ -1,1 +1,7 @@
-<h3><%= @onsen.name %></h3>
+<h3><%= @journal.name %></h3>
+
+<%= @journal.entries.each do |entry| %>
+    <h3><%= entry.title %></h3>
+<% end %>
+
+<%= link_to "Write new entry", new_journal_entry_path(@journal) %>

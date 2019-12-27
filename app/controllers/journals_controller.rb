@@ -8,15 +8,15 @@ class JournalsController < ApplicationController
     end
 
     def show
-        @onsen = Journal.find(params[:id])
+        @journal = Journal.find(params[:id])
     end
 
     def create
         @journal = Journal.new(journal_params)
         if @journal.save
-        redirect_to journal_path(@journal)
+            redirect_to journal_path(@journal)
         else
-        render :new
+            render :new
         end
     end
 
