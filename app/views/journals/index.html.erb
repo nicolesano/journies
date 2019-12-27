@@ -1,0 +1,15 @@
+<h2>Your journals</h2>
+
+<% if @journals.count > 0 %>
+    <% @journals.each do |journal| %>
+        <h3><%= journal.name %></h3>
+    <% end %>
+<% else %>
+    <h3>No journals yet!</h3>
+<% end %>
+
+<div class="btn">
+    <%= link_to new_journal_path(@journal) do %>
+    <h4>Create new journal</h4>
+    <% end %>
+</div>
