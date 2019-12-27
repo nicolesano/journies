@@ -1,0 +1,2 @@
+class Jounral < ApplicationRecord
+end
