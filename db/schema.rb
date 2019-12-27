@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_27_090601) do
+ActiveRecord::Schema.define(version: 2019_12_27_100016) do
+
+  create_table "entries", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "journal_id"
+    t.index ["journal_id"], name: "index_entries_on_journal_id"
+  end
 
   create_table "journals", force: :cascade do |t|
     t.string "name"
