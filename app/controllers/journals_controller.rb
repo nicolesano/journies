@@ -1,10 +1,12 @@
 class JournalsController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
+
     def index
         @journals = Journal.all
     end
 
     def new
-        @journal = Journal.new
+        @journal = current_user.journals.build
     end
 
     def show
@@ -12,7 +14,7 @@ class JournalsController < ApplicationController
     end
 
     def create
-        @journal = Journal.new(journal_params)
+        @journal = current_user.journals.build(journal_params)
         if @journal.save
             redirect_to journal_path(@journal)
         else

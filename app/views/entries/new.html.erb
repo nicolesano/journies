@@ -1,7 +1,7 @@
 <h1>Add an entry</h1>
 
-<%= simple_form_for [@journal, @entry], url: journal_entries_path do |f| %>
-    <%= f.input :title %>
-    <%= f.input :content %>
-    <%= f.submit "Finish entry", class: "btn" %>
+<%= f.simple_fields_for :entry do |p| %>
+    <%= p.input :title %>
+    <%= p.input :content %>
+    <%= p.submit "Finish entry", class: "btn" %>
 <% end %>
