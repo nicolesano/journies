@@ -1,7 +1,15 @@
-<h3><%= @journal.name %></h3>
+<h1><%= @journal.name %></h1>
 
+<h3>Diary</h3>
+
+<div class="btn">
+    <%= link_to "Write new entry", new_journal_entry_path(@journal) %>
+</div>
+
+<h4>Recent</h4>
 <% @journal.entries.each do |entry| %>
-    <h3><%= entry.title %></h3>
+    <div class="card">
+        <h3><%= entry.title %></h3>
+        <p><%= entry.content %></p>
+    </div>
 <% end %>
-
-<%= link_to "Write new entry", new_journal_entry_path(@journal) %>
