@@ -1,15 +1,26 @@
-<h1><%= @journal.name %></h1>
+<div class="wrapper">
+    <h1><%= @journal.name %></h1>
 
-<h3>Diary</h3>
-
-<div class="btn">
-    <%= link_to "Write new entry", new_journal_entry_path(@journal) %>
-</div>
-
-<h4>Recent</h4>
-<% @journal.entries.each do |entry| %>
-    <div class="card">
-        <h3><%= entry.title %></h3>
-        <p><%= entry.content %></p>
+        <div class="quote">
+        <h4>Something to remember...</h4>
+        <p><%= @default_quotes.sample %></p>
+        
     </div>
-<% end %>
+
+    <h3>Diary</h3>
+
+    <div class="btn">
+        <%= link_to "Write new entry", new_journal_entry_path(@journal) %>
+    </div>
+
+    <h4>Recent</h4>
+    
+    <div class="card-container">
+        <% @journal.entries.first(8).each do |entry| %>
+            <div class="card">
+                <h5><%= entry.title %></h5>
+                <p><%= entry.content %></p>
+            </div>
+        <% end %>
+    </div>
+</div>
