@@ -4,8 +4,8 @@ class EntriesController < ApplicationController
     end
 
     def new
-        @entry = Entry.new
         @journal = Journal.find(params[:journal_id])
+        @entry = Entry.new
     end
 
     def show
@@ -13,15 +13,16 @@ class EntriesController < ApplicationController
     end
 
     def create
-        @entry = Entry.new(entry_params)
+        @journal = Journal.find(params[:journal_id])
+        @entry = @journal.entries.new(entry_params)
         if @entry.save
-            redirect_to entry_path(@entry)
+            redirect_to journals_path(@entry)
         else
             render :new
         end
     end
 
     def entry_params
-        params.require(:entry).permit(:title, :content)
+        params.require(:entry).permit(:title, :content, :user_id, :journal_id)
     end    
 end

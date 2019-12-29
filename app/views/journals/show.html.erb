@@ -1,6 +1,6 @@
 <h3><%= @journal.name %></h3>
 
-<%= @journal.entries.each do |entry| %>
+<% @journal.entries.each do |entry| %>
     <h3><%= entry.title %></h3>
 <% end %>
 
