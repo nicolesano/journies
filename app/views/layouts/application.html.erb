@@ -13,18 +13,20 @@
   </head>
 
   <body>
-    <% if user_signed_in? -%>
-      <ul>
-        <li><%= link_to 'Account', edit_user_registration_path %></li>
-        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-        <li><%= link_to 'View all journals', journals_path %></li>
-      </ul>
-    <% else -%>
-      <ul>
-        <li><%= link_to 'Sign up', new_user_registration_path %></li>
-        <li><%= link_to 'Sign in', new_user_session_path %></li>
-      </ul>
-    <% end -%>
+    <div class="navbar">
+      <% if user_signed_in? -%>
+        <ul class="nav-items">
+          <li class="nav-item"><%= link_to 'Account', edit_user_registration_path %></li>
+          <li class="nav-item"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+          <li class="nav-item"><%= link_to 'View all journals', journals_path %></li>
+        </ul>
+      <% else -%>
+        <ul class="nav-items">
+          <li class="nav-item"><%= link_to 'Sign up', new_user_registration_path %></li>
+          <li class="nav-item"><%= link_to 'Sign in', new_user_session_path %></li>
+        </ul>
+      <% end -%>
+    </div>
 
     <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert alert-info") %>
