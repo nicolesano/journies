@@ -4,7 +4,8 @@ class HabitsController < ApplicationController
     end
 
     def new
-        @habit = current_user.habits.build
+        @journal = Journal.find(params[:journal_id])
+        @habit = Habit.new
     end
 
     def show    
@@ -12,15 +13,16 @@ class HabitsController < ApplicationController
     end
 
     def create
-        @habit = current_user.habits.build(habit_params)
+        @journal = Journal.find(params[:journal_id])
+        @habit = @journal.habits.new(habit_params)
         if @habit.save
-            redirect_to habit_path(@habit)
+            redirect_to journal_path(@journal)
         else
             render :new
         end
     end
 
     def habit_params
-        params.require(:habit).permit(:name, :status)
+        params.require(:habit).permit(:name, :status, :user_id, :journal_id)
     end
 end

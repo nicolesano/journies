@@ -3,10 +3,23 @@
 
     <h3>Habits</h3>
 
-        <div class="quote-container">
+    <div class="habit-container">
+        <% @journal.habits.each do |habit| %>
+            <div class="habit-list">
+                <p><%= habit.name %></p>
+            </div>
+        <% end %>
+    </div>
+
+    <h5>Create new habit</h5>
+    <%= simple_form_for [@journal, @habit] do |f| %>
+        <%= f.input :name %>
+        <%= f.submit "Create habit", class: "btn" %>
+    <% end %>
+
+    <div class="quote-container">
         <h4>Something to remember...</h4>
         <p class="quote"><%= @default_quotes.sample %></p>
-        
     </div>
 
     <h3>Diary</h3>

@@ -10,6 +10,7 @@ class JournalsController < ApplicationController
     def show    
         @default_quotes = ["\"Those who stay will be champions.\" - Bo Schembechler", "\"I haven’t failed. I’ve just found 10,000 ways that won’t work.\” - Thomas Edison"]
         @journal = Journal.find(params[:id])
+        @habit = Habit.new
     end
 
     def create
