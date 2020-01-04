@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_02_125200) do
+ActiveRecord::Schema.define(version: 2020_01_04_015718) do
+
+  create_table "completed_dates", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "habit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["habit_id"], name: "index_completed_dates_on_habit_id"
+  end
 
   create_table "entries", force: :cascade do |t|
     t.string "title"
