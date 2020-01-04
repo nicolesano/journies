@@ -1,4 +1,4 @@
-.btn a {
+.btn-submit, .btn a {
     background-color: #57A7D3;
     color: white;
     font-size: 14px;
@@ -6,7 +6,7 @@
     border-radius: 12px;
 }
 
-.btn a:hover {
+.btn-submit, .btn a:hover {
     text-decoration: none;
     color: white;
 }

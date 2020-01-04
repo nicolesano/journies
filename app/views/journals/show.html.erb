@@ -6,16 +6,27 @@
     <div class="habit-container">
         <% @journal.habits.each do |habit| %>
             <div class="habit-list">
-                <p><%= habit.name %></p>
+                <p class="habit-name"><%= habit.name %></p>
+                <%= simple_form_for [@journal, @habit] do |f| %>
+                    <%= f.input :status %>
+                <% end %>
+                <div class="habit-box"></div>
+                <div class="habit-box"></div>
+                <div class="habit-box"></div>
+                <div class="habit-box"></div>
+                <div class="habit-box"></div>
+                <div class="habit-box"></div>
             </div>
         <% end %>
     </div>
 
+    <div class=".d-flex flex-row">
     <h5>Create new habit</h5>
-    <%= simple_form_for [@journal, @habit] do |f| %>
-        <%= f.input :name %>
-        <%= f.submit "Create habit", class: "btn" %>
-    <% end %>
+        <%= simple_form_for [@journal, @habit] do |f| %>
+            <%= f.input :name %>
+            <%= f.submit "Create habit", class: "btn-submit" %>
+        <% end %>
+    </div>
 
     <div class="quote-container">
         <h4>Something to remember...</h4>
