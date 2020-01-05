@@ -1,9 +1,12 @@
 .habit-list {
     display: flex;
+    align-items: center;
 }
 
 .habit-name {
     width: 100px;
+    margin-bottom: 0;
+    justify-items: center;
 }
 
 .habit-box {

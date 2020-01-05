@@ -6,10 +6,12 @@
     <div class="habit-container">
         <% @journal.habits.each do |habit| %>
             <div class="habit-list">
-                <p class="habit-name"><%= habit.name %></p>
-                <%= simple_form_for [@journal, @habit] do |f| %>
-                    <%= f.input :status %>
-                <% end %>
+                <div class="habit-name"><%= habit.name %></div>
+                <div class="habit-status">
+                    <%= simple_form_for [@journal, @habit] do |f| %>
+                        <%= f.input :status, label: false %>
+                    <% end %>
+                </div>
                 <div class="habit-box"></div>
                 <div class="habit-box"></div>
                 <div class="habit-box"></div>
@@ -17,7 +19,7 @@
                 <div class="habit-box"></div>
                 <div class="habit-box"></div>
                 <div>
-                    <%= link_to journal_habit_path(@journal, habit), method: :delete do %>
+                    <%= link_to habit_path(habit), method: :delete do %>
                     <i class="fas fa-trash btn-edit"></i>
                     <% end %>
                 </div>
