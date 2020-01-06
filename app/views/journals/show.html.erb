@@ -9,8 +9,9 @@
                 <div class="habit-name"><%= habit.name %></div>
                 <div class="habit-status">
                     <%= simple_form_for [@journal, @habit] do |f| %>
-                        <%= f.input :status, label: false %>
+                        <%= f.input :status, label: false, :inline_label => true, :input_html => { :class => "habit-checkbox" } %>
                     <% end %>
+                    <div class="habit-box"></div>
                 </div>
                 <div class="habit-box"></div>
                 <div class="habit-box"></div>
