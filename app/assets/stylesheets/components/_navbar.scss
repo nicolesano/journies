@@ -1,14 +1,13 @@
-.nav-items {
+ul .nav-items {
     display: flex;
     list-style-type: none;
-    justify-content: flex-end;
 }
 
 .nav-item a {
-    color: #747474;
+    color: $gray;
 }
 
 .nav-item a:hover {
     text-decoration: none;
-    color: #747474;
+    color: $gray;
 }

@@ -13,20 +13,22 @@
   </head>
 
   <body>
-    <div class="navbar">
       <% if user_signed_in? -%>
-        <ul class="nav-items">
-          <li class="nav-item"><%= link_to 'Account', edit_user_registration_path %></li>
-          <li class="nav-item"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-          <li class="nav-item"><%= link_to 'View all journals', journals_path %></li>
+      <nav>
+        <ul class="navbar nav-items justify-content-end">
+          <li class="navbar-brand nav-item"><%= link_to 'Account', edit_user_registration_path %></li>
+          <li class="navbar-brand nav-item"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+          <li class="navbar-brand nav-item"><%= link_to 'View all journals', journals_path %></li>
         </ul>
+      </nav>
       <% else -%>
-        <ul class="nav-items">
-          <li class="nav-item"><%= link_to 'Sign up', new_user_registration_path %></li>
-          <li class="nav-item"><%= link_to 'Sign in', new_user_session_path %></li>
+      <nav>
+        <ul class="navbar nav-items">
+          <li class="navbar-brand nav-item"><%= link_to 'Sign up', new_user_registration_path %></li>
+          <li class="navbar-brand nav-item"><%= link_to 'Sign in', new_user_session_path %></li>
         </ul>
+      </nav>
       <% end -%>
-    </div>
 
     <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert alert-info") %>

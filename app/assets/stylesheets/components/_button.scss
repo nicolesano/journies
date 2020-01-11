@@ -1,5 +1,5 @@
 .btn-submit, .btn a {
-    background-color: #57A7D3;
+    background-color: $blue;
     color: white;
     font-size: 14px;
     padding: 4px 8px;
@@ -12,7 +12,7 @@
 }
 
 .btn-edit {
-    background-color: grey;
+    background-color: $gray;
     color: white;
     font-size: 14px;
     padding: 8px;
