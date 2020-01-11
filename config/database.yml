@@ -21,5 +21,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: journies_production
+  username: journies
+  password: ENV['APPNAME_DATABASE_PASSWORD']
+
