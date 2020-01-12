@@ -8,7 +8,11 @@ class JournalsController < ApplicationController
     end
 
     def show    
-        @default_quotes = ["\"Those who stay will be champions.\" - Bo Schembechler", "\"I haven’t failed. I’ve just found 10,000 ways that won’t work.\” - Thomas Edison"]
+        @default_quotes = 
+            ["\"Those who stay will be champions.\" - Bo Schembechler", 
+            "\"I haven’t failed. I’ve just found 10,000 ways that won’t work.\” - Thomas Edison", 
+            "\"Don’t ask what the world needs. Ask what makes you come alive, and go do it. Because what the world needs is people who have come alive.\” - Howard Thurman", 
+            "\"Life isn't about finding yourself. Life is about creating yourself.\”- George Bernard Shaw"]
         @journal = Journal.find(params[:id])
         @habit = Habit.new
     end

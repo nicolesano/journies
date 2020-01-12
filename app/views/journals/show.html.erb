@@ -1,36 +1,38 @@
 <div class="wrapper">
     <h1><%= @journal.name %></h1>
 
-    <div class="habit-container">
-        <h3>Habits</h3>
-        <% @journal.habits.each do |habit| %>
-            <div class="habit-list">
-                <div class="habit-name"><%= habit.name %></div>
-                <div class="habit-status">
-                    <%= simple_form_for [@journal, @habit] do |f| %>
-                        <%= f.input :status, label: false, :inline_label => true %>
-                    <% end %>
+    <div class="top">
+        <div class="habit-container">
+            <h3>Habits</h3>
+            <% @journal.habits.each do |habit| %>
+                <div class="habit-list">
+                    <div class="habit-name"><%= habit.name %></div>
+                    <div class="habit-status">
+                        <%= simple_form_for [@journal, @habit] do |f| %>
+                            <%= f.input :status, label: false, :inline_label => true %>
+                        <% end %>
+                    </div>
+                    <div>
+                        <%= link_to habit_path(habit), method: :delete do %>
+                        <i class="fas fa-trash btn-edit"></i>
+                        <% end %>
+                    </div>
                 </div>
-                <div>
-                    <%= link_to habit_path(habit), method: :delete do %>
-                    <i class="fas fa-trash btn-edit"></i>
-                    <% end %>
-                </div>
-            </div>
-        <% end %>
-
-        <div class="create-new-habit .d-flex flex-row">
-            <h5>Create new habit</h5>
-            <%= simple_form_for [@journal, @habit] do |f| %>
-                <%= f.input :name, label_html: { class: 'create-new-habit-name' }  %>
-                <%= f.submit "Create", class: "btn-submit" %>
             <% end %>
-        </div>
-    </div>
 
-    <div class="quote-container">
-        <h4>Something to remember...</h4>
-        <p class="quote"><%= @default_quotes.sample %></p>
+            <div class="create-new-habit .d-flex flex-row">
+                <h5>Create new habit</h5>
+                <%= simple_form_for [@journal, @habit] do |f| %>
+                    <%= f.input :name, label_html: { class: 'create-new-habit-name' }  %>
+                    <%= f.submit "Create", class: "btn-submit" %>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="quote-container">
+            <h4>Something to remember...</h4>
+            <p class="quote"><%= @default_quotes.sample %></p>
+        </div>
     </div>
 
     <h3>Diary</h3>
