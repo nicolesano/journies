@@ -16,7 +16,7 @@ class EntriesController < ApplicationController
         @journal = Journal.find(params[:journal_id])
         @entry = @journal.entries.new(entry_params)
         if @entry.save
-            redirect_to journals_path(@entry)
+            redirect_to journal_path(@journal)
         else
             render :new
         end
