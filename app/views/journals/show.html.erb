@@ -13,6 +13,11 @@
                         <% end %>
                     </div>
                     <div>
+                        <%= link_to habit_path(habit), method: :update do %>
+                        <i class="fas fa-edit btn-edit"></i>
+                        <% end %>
+                    </div>
+                    <div>
                         <%= link_to habit_path(habit), method: :delete do %>
                         <i class="fas fa-trash btn-edit"></i>
                         <% end %>

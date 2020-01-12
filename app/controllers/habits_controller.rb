@@ -1,5 +1,5 @@
 class HabitsController < ApplicationController
-    before_action :set_journal, only: [:new, :create, :edit, :update]
+    before_action :set_journal, only: [:new, :create, :edit, :update, :destroy]
     before_action :set_habit, only: [:show, :edit, :update, :destroy]
     def index
         @habits = Habit.all.sort_by &:name
@@ -34,7 +34,6 @@ class HabitsController < ApplicationController
 
     def destroy
         @habit.destroy
-        @journal = Journal.find_by_habit_id(params[:id])
         redirect_to journal_path(@journal)
     end
 
