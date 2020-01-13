@@ -3,40 +3,53 @@
 
     <div class="top">
         <div class="habit-container">
-            <h3>Habits</h3>
-            <% @journal.habits.each do |habit| %>
+            <div class="container-white-top">
+                <h3>Habits</h3>
+            </div>
+            <div class="container-white-bottom habit-list-and-create-button">
                 <div class="habit-list">
-                    <div class="habit-name"><%= habit.name %></div>
-                    <div class="habit-status">
-                        <%= simple_form_for [@journal, @habit] do |f| %>
-                            <%= f.input :status, label: false, :inline_label => true %>
-                        <% end %>
-                    </div>
-                    <div>
-                        <%= link_to habit_path(habit), method: :update do %>
-                        <i class="fas fa-edit btn-edit"></i>
-                        <% end %>
-                    </div>
-                    <div>
-                        <%= link_to habit_path(habit), method: :delete do %>
-                        <i class="fas fa-trash btn-edit"></i>
-                        <% end %>
-                    </div>
+                    <% @journal.habits.each do |habit| %>
+                        <div class="habit">
+                            <div class="habit-name"><%= habit.name %></div>
+                            <div class="habit-status">
+                                <%= simple_form_for [@journal, @habit] do |f| %>
+                                    <%= f.input :status, label: false, :inline_label => true %>
+                                <% end %>
+                            </div>
+                            <% if habit.status == true %>
+                                <h2><%= habit.name %></h2>
+                            <% end %>
+                            <div>
+                                <%= link_to mark_journal_habit_path(@journal), method: :mark do %>
+                                <i class="fas fa-edit btn-edit"></i>
+                                <% end %>
+                            </div>
+                            <div>
+                                <%= link_to journal_habit_path(@journal), method: :delete do %>
+                                <i class="fas fa-trash btn-edit"></i>
+                                <% end %>
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
-            <% end %>
 
-            <div class="create-new-habit .d-flex flex-row">
-                <h5>Create new habit</h5>
-                <%= simple_form_for [@journal, @habit] do |f| %>
-                    <%= f.input :name, label_html: { class: 'create-new-habit-name' }  %>
-                    <%= f.submit "Create", class: "btn-submit" %>
-                <% end %>
+                <div class="create-new-habit .d-flex flex-row">
+                    <h5>Create new habit</h5>
+                    <%= simple_form_for [@journal, @habit] do |f| %>
+                        <%= f.input :name, label_html: { class: 'create-new-habit-name' }  %>
+                        <%= f.submit "Create", class: "btn-submit" %>
+                    <% end %>
+                </div>
             </div>
         </div>
 
         <div class="quote-container">
-            <h4>Something to remember...</h4>
-            <p class="quote"><%= @default_quotes.sample %></p>
+            <div class="container-white-top">
+                <h4>Something to remember...</h4>
+            </div>
+            <div class="container-white-bottom">
+                <p class="quote"><%= @default_quotes.sample %></p>
+            </div>
         </div>
     </div>
 

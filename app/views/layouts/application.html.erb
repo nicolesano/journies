@@ -15,27 +15,8 @@
   </head>
 
   <body>
-      <% if user_signed_in? -%>
-      <nav>
-        <ul class="navbar nav-items justify-content-end">
-          <li class="navbar-brand nav-item"><%= link_to 'Account', edit_user_registration_path %></li>
-          <li class="navbar-brand nav-item"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-          <li class="navbar-brand nav-item"><%= link_to 'View all journals', journals_path %></li>
-        </ul>
-      </nav>
-      <% else -%>
-      <nav>
-        <ul class="navbar nav-items">
-          <li class="navbar-brand nav-item"><%= link_to 'Sign up', new_user_registration_path %></li>
-          <li class="navbar-brand nav-item"><%= link_to 'Sign in', new_user_session_path %></li>
-        </ul>
-      </nav>
-      <% end -%>
-
-    <% flash.each do |name, msg| %>
-      <%= content_tag(:div, msg, class: "alert alert-info") %>
-    <% end %>
-
+    <%= render 'layouts/navbar' %>
+    
     <%= yield %>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

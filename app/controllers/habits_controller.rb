@@ -1,6 +1,6 @@
 class HabitsController < ApplicationController
     before_action :set_journal, only: [:new, :create, :edit, :update, :destroy]
-    before_action :set_habit, only: [:show, :edit, :update, :destroy]
+    before_action :set_habit, only: [:show, :mark, :edit, :update, :destroy]
     def index
         @habits = Habit.all.sort_by &:name
     end
@@ -18,6 +18,14 @@ class HabitsController < ApplicationController
             redirect_to journal_path(@journal)
         else
             render :new
+        end
+    end
+
+    def mark
+        if @habit.status?
+            @habit.status = false
+        else
+            @habit.status = true
         end
     end
 

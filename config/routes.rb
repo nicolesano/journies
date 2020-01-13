@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :journals do
     resources :entries
-    resources :habits, shallow: true
+    resources :habits do
+      member do
+        get 'mark'
+      end
+    end
   end
 end

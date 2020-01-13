@@ -54,3 +54,10 @@ h1 {
   margin: 24px;
   color: $white;
 }
+
+.container-white-top, .container-white-bottom {
+  background-color: $white;
+  z-index: 1;
+  margin: 4px;
+  border-radius: 4px;
+}
