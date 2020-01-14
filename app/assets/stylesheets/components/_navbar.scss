@@ -1,13 +1,24 @@
-ul .nav-items {
-    display: flex;
+.navbar {
+    margin: 0;
+}
+
+.navbar ul {
     list-style-type: none;
 }
 
 .nav-item a {
     color: $gray;
+    vertical-align: bottom;
+    font-size: larger;
 }
 
 .nav-item a:hover {
     text-decoration: none;
     color: $gray;
+}
+
+.navbar-bar {
+    background: linear-gradient(248.23deg, rgb(189, 148, 228) -5.28%, rgb(115, 226, 193) 103.68%);
+    height: 0.7vh;
+    margin: 0;
 }

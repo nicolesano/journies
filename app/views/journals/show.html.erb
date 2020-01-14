@@ -12,9 +12,11 @@
                         <div class="habit">
                             <div class="habit-name"><%= habit.name %></div>
                             <div class="habit-status">
-                                <%= simple_form_for [@journal, @habit] do |f| %>
-                                    <%= f.input :status, label: false, :inline_label => true %>
-                                <% end %>
+                                <div class="ui checkbox">
+                                    <%= simple_form_for [@journal, @habit] do |f| %>
+                                        <%= f.input :status, label: 'done', as: :boolean, boolean_style: :inline %>
+                                    <% end %>
+                                </div>
                             </div>
                             <% if habit.status == true %>
                                 <h2><%= habit.name %></h2>
