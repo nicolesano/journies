@@ -56,6 +56,6 @@ class HabitsController < ApplicationController
     end
 
     def set_habit
-        @habit = Habit.find(params[:id])
+        @habit = Habit.find_by(params[:id])
     end
 end

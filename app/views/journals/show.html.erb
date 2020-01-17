@@ -10,28 +10,33 @@
                 <div class="habit-list">
                     <% @journal.habits.each do |habit| %>
                         <div class="habit">
-                            <div class="habit-name"><%= habit.name %></div>
-                            <div class="habit-status">
-                                <div class="ui checkbox">
-                                    <%= simple_form_for [@journal, @habit] do |f| %>
-                                        <%= f.input :status, label: 'done', as: :boolean, boolean_style: :inline %>
+                                <div class="habit-name"><%= habit.name %></div>
+                                <% if habit.completed_dates.include?(Date.today) %>
+                                    <h3>Hello</h3>
+                                <% end %>
+                                <!-- <div class="habit-status">
+                                    <div class="ui checkbox">
+                                        <%= simple_form_for [@journal, @habit] do |f| %>
+                                            <%= f.input :status, label: 'done', as: :boolean, boolean_style: :inline %>
+                                        <% end %>
+                                    </div>
+                                </div> -->
+                                <div>
+                                    <% if habit.status == true %>
+                                        <h2><%= habit.name %></h2>
+                                    <% end %>
+                                </div>
+                                <div>
+                                    <%= link_to mark_journal_habit_path(@journal), method: :post do %>
+                                    <i class="fas fa-edit btn-edit"></i>
+                                    <% end %>
+                                </div>
+                                <div>
+                                    <%= link_to journal_habit_path(@journal), method: :delete do %>
+                                    <i class="fas fa-trash btn-edit"></i>
                                     <% end %>
                                 </div>
                             </div>
-                            <% if habit.status == true %>
-                                <h2><%= habit.name %></h2>
-                            <% end %>
-                            <div>
-                                <%= link_to mark_journal_habit_path(@journal), method: :mark do %>
-                                <i class="fas fa-edit btn-edit"></i>
-                                <% end %>
-                            </div>
-                            <div>
-                                <%= link_to journal_habit_path(@journal), method: :delete do %>
-                                <i class="fas fa-trash btn-edit"></i>
-                                <% end %>
-                            </div>
-                        </div>
                     <% end %>
                 </div>
 

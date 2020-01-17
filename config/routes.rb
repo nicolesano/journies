@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :entries
     resources :habits do
       member do
-        get 'mark'
+        post 'mark'
       end
     end
   end

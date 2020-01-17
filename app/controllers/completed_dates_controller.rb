@@ -1,5 +1,8 @@
 class CompletedDatesController < ApplicationController
-    before_action :set_habit, only: [:show, :create]
+    before_action :set_journal, only: [:new, :create, :edit, :update, :destroy]
+    before_action :set_habit, only: [:show, :mark, :edit, :update, :destroy]
+    before_action :set_completed_date, only: [:show, :mark, :edit, :update, :destroy]
+
     def index
         @completed_dates = CompletedDate.all
     end
@@ -21,6 +24,20 @@ class CompletedDatesController < ApplicationController
     end
 
     def set_habit
+        @habit = Habit.find(params[:id])
+    end
+
+    private
+
+    def completed_date_params
+        params.require(:completed_date).permit(:date, :habit_id, :user_id, :journal_id)
+    end
+
+    def set_journal
+        @journal = Journal.find(params[:journal_id])
+    end
+
+    def set_completed_date
         @habit = Habit.find(params[:id])
     end
 end

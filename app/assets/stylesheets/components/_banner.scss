@@ -8,6 +8,18 @@
     height: 96vh;
 }
 
-.banner h1, h3, i {
+.banner h1, .banner h3, .banner i {
     color: $white;
+}
+
+.banner h1 {
+    padding-top: 14%;
+    padding-left: 7%;
+    font-size: 48px;
+}
+
+.banner h3 {
+    padding-top: 2%;
+    padding-left: 10%;
+    font-size: 32px;
 }
