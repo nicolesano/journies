@@ -20,6 +20,7 @@
 //= require semantic-ui
 //= require semantic-ui/modal
 //= require semantic-ui/dropdown
+//= require semantic_ui/semantic_ui
 //= require_tree .
 
 (function ($) {

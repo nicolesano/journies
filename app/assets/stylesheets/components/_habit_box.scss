@@ -9,10 +9,6 @@
     margin-bottom: 10px;
 }
 
-.habit-list-and-create-button {
-    padding: 4% 2% 16% 2%;
-}
-
 .habit-list {
     padding: 0 2%;
 }
@@ -20,15 +16,6 @@
 .habit-name {
     color: $white;
     font-size: 14px;
-}
-
-.habit {
-    display: flex;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
-    padding: 4px 8px;
-    margin: 8px;
 }
 
 .habit-name {

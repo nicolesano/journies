@@ -24,6 +24,9 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'semantic-ui-sass'
+gem 'less-rails-semantic_ui'
+gem 'autoprefixer-rails', '8.6.5'
+gem "therubyracer", "~> 0.12"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
