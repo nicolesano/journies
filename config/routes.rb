@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :journals do
     resources :entries
     resources :habits do
-      member do
-        post 'mark'
+      # member do
+      #   post 'mark'
+      # end
+      resources :completed_dates do
       end
     end
   end

@@ -1,21 +1,21 @@
 class CompletedDatesController < ApplicationController
     before_action :set_journal, only: [:new, :create, :edit, :update, :destroy]
-    before_action :set_habit, only: [:show, :mark, :edit, :update, :destroy]
-    before_action :set_completed_date, only: [:show, :mark, :edit, :update, :destroy]
+    before_action :set_habit, only: [:show, :create, :edit, :update, :destroy]
+    before_action :set_completed_date, only: [:show, :new, :create, :edit, :update, :destroy]
 
     def index
         @completed_dates = CompletedDate.all
     end
 
     def new
-        @completed_date = CompletedDate.new
+        @completed_date = @habit.completed_date.buid(params[:completed_date])
     end
 
     def show
     end
 
     def create
-        @completed_date = @journal.habit.completed_dates.new(completed_date_params)
+        @completed_date = @habit.completed_dates.build(params[:completed_date])
         if @completed_date.save
             redirect_to journal_path(@journal)
         else
@@ -23,21 +23,21 @@ class CompletedDatesController < ApplicationController
         end
     end
 
-    def set_habit
-        @habit = Habit.find(params[:id])
-    end
-
     private
 
     def completed_date_params
-        params.require(:completed_date).permit(:date, :habit_id, :user_id, :journal_id)
+        params.permit(:date, :habit_id, :user_id, :journal_id)
     end
 
     def set_journal
         @journal = Journal.find(params[:journal_id])
     end
 
+    def set_habit
+        @habit = Habit.find(params[:habit_id])
+    end
+
     def set_completed_date
-        @habit = Habit.find(params[:id])
+        @completed_date = CompletedDate.find_by(params[:id])
     end
 end

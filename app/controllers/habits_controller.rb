@@ -1,8 +1,9 @@
 class HabitsController < ApplicationController
     before_action :set_journal, only: [:new, :create, :edit, :update, :destroy]
     before_action :set_habit, only: [:show, :mark, :edit, :update, :destroy]
+
     def index
-        @habits = Habit.all.sort_by &:name
+        @habits = Habit.order(:sort).all
     end
 
     def new
@@ -21,13 +22,13 @@ class HabitsController < ApplicationController
         end
     end
 
-    def mark
-        if @habit.status?
-            @habit.status = false
-        else
-            @habit.status = true
-        end
-    end
+    # def mark
+    #     if @habit.status?
+    #         @habit.status = false
+    #     else
+    #         @habit.status = true
+    #     end
+    # end
 
     def edit
     end

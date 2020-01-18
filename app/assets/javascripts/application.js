@@ -12,9 +12,18 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require jquery_ujs
+//= require jquery-ui/widgets/sortable
+//= require rails_sortable
 //= require activestorage
 //= require turbolinks
 //= require semantic-ui
 //= require semantic-ui/modal
 //= require semantic-ui/dropdown
 //= require_tree .
+
+(function ($) {
+    $(document).on( 'turbolinks:load', function(){
+        $('.sortable').railsSortable();
+    });
+})(jQuery);

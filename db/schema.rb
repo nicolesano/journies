@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_04_015718) do
+ActiveRecord::Schema.define(version: 2020_01_18_024804) do
 
   create_table "completed_dates", force: :cascade do |t|
     t.datetime "date"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_01_04_015718) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "journal_id"
+    t.integer "sort"
     t.index ["journal_id"], name: "index_habits_on_journal_id"
   end
 
