@@ -1,81 +1,74 @@
 <div class="wrapper">
-    <h1><%= @journal.name %></h1>
+    <h1 id="journal-name"><%= @journal.name %></h1>
+    <section class="card-wide habit">
+        <h3 class="section-header">Habits</h3>
 
-    <div class="top ui grid">
-        <div class="habit-container six wide column">
-            <div class="container-white-top">
-                <h3>Habits</h3>
-            </div>
-            <div class="container-white-bottom">
+        <div class="top-row d-flex">
+            <div class="habit-name-column pl-4"></div>
+            <div class="weekday-column text-center">M</div>
+            <div class="weekday-column text-center">T</div>
+            <div class="weekday-column text-center">W</div>
+            <div class="weekday-column text-center">T</div>
+            <div class="weekday-column text-center">F</div>
+            <div class="weekday-column text-center">S</div>
+            <div class="weekday-column text-center">S</div>
+            <div class="status-column"></div>
+        </div>
 
-                <table class="ui table">
-                    <thead>
-                        <tr class="table-header">
-                            <th class="one wide">Habit</th>
-                            <th class="one wide">M</th>
-                            <th class="one wide">T</th>
-                            <th class="one wide">W</th>
-                            <th class="one wide">T</th>
-                            <th class="one wide">F</th>
-                            <th class="one wide">S</th>
-                            <th class="one wide">S</th>
-                            <th class="three wide"></th>
-                        </tr>
-                    </thead>
-                    <tbody class="habit-list sortable">
-                        <% @journal.habits.each do |habit| %>
-                            <tr class="habit sortable_id">
-                                <td class="three wide"><%= habit.name %></td>
-                                <td class="one wide"><i class="fas fa-square"></i></td>
-                                <td class="one wide"><i class="fas fa-square"></i></td>
-                                <td class="one wide"><i class="fas fa-square"></i></td>
-                                <td class="one wide"><i class="fas fa-square"></i></td>
-                                <td class="one wide"><i class="fas fa-square"></i></td>
-                                <td class="one wide"><i class="fas fa-square"></i></td>
-                                <td class="one wide"><i class="fas fa-square"></i></td>
-                                <td class="one wide">
-                                    <% if habit.completed_dates.exists? %>
-                                        <i class="fas fa-check"></i>
-                                    <% else %>
-                                        <i class="fas fa-times"></i>
-                                    <% end %>
-                                </td>
-                                <td class="one wide">
-                                    <%= link_to journal_habit_completed_dates_path(@journal, habit), method: :post do %>
-                                        <i class="fas fa-edit btn-edit"></i>
-                                    <% end %>
-                                </td>
-                                <td class="one wide">
-                                    <%= link_to journal_habit_path(@journal), method: :delete do %>
-                                        <i class="fas fa-trash btn-edit"></i>
-                                    <% end %>
-                                </td>
-                            </tr>
-                        <% end %>
-                    </tbody>
-                </table>
-
-                <div class="container pb-2 create-new-habit .d-flex flex-row">
-                    <h5>Create new habit</h5>
-                    <%= simple_form_for [@journal, @habit] do |f| %>
-                        <%= f.input :name, label_html: { class: 'create-new-habit-name' }  %>
-                        <%= f.submit "Create", class: "btn-submit" %>
+        <div class="habits sortable">
+            <% @journal.habits.each do |habit| %>
+                <div class="habit-container d-flex align-items-center sortable_id">
+                    <div class="habit-name-column pl-4"><%= habit.name %></div>
+                    <% if habit.completed_dates.include?(Date.today.all_day) %>
+                        <div class="habit weekday-column text-center"><i class="fas fa-square"></i></div>
                     <% end %>
+                    <div class="habit weekday-column text-center"><i class="fas fa-square"></i></div>
+                    <div class="habit weekday-column text-center"><i class="fas fa-square"></i></div>
+                    <div class="habit weekday-column text-center"><i class="fas fa-square"></i></div>
+                    <div class="habit weekday-column text-center"><i class="fas fa-square"></i></div>
+                    <div class="habit weekday-column text-center"><i class="fas fa-square"></i></div>
+                    <div class="habit weekday-column text-center"><i class="fas fa-square"></i></div>
+                    <div class="habit weekday-column text-center"><i class="fas fa-square"></i></div>
+                    <div class="status-column d-flex">
+                        <div class="check">
+                            <% if habit.completed_dates.exists? %>
+                            <i class="fas fa-check"></i>
+                        <% else %>
+                            <i class="fas fa-times"></i>
+                        <% end %>
+                        </div>
+                        <div class="edit-button">
+                            <%= link_to journal_habit_completed_dates_path(@journal, habit), method: :post do %>
+                            <i class="fas fa-edit btn-edit"></i>
+                        <% end %>
+                        </div>
+                        <div class="delete-button">
+                            <%= link_to journal_habit_path(@journal), method: :delete do %>
+                            <i class="fas fa-trash btn-edit"></i>
+                        <% end %>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            <% end %>
         </div>
 
-        <div class="quote-container column four wide">
-            <div class="container-white-top">
-                <h4>Something to remember...</h4>
-            </div>
-            <div class="container-white-bottom">
-                <p class="quote"><%= @default_quotes.sample %></p>
-            </div>
+        <div class="create-new-habit .d-flex flex-row">
+            <h5>Create new habit</h5>
+            <%= simple_form_for [@journal, @habit] do |f| %>
+                <%= f.input :name, label_html: { class: 'create-new-habit-name' }  %>
+                <%= f.submit "Create", class: "btn-submit" %>
+            <% end %>
         </div>
-    </div>
+    </section>
 
-    <h3>Diary</h3>
+    <section class="card-wide quote">
+        <h3 class="section-header">Something to remember...</h3>
+        <div>
+            <p><%= @default_quotes.sample %></p>
+        </div>
+    </section>
+
+    <h3 class="section-header">Diary</h3>
 
     <div class="btn">
         <%= link_to "Write new entry", new_journal_entry_path(@journal) %>
@@ -89,6 +82,18 @@
                 <h5><%= entry.title %></h5>
                 <p><%= entry.created_at.strftime("%A %B %d, %Y") %></p>
                 <p><%= entry.content %></p>
+                <div class="edit-buttons d-flex justify-content-end">
+                    <div class="button">
+                        <%= link_to edit_journal_entry_path(@journal, entry), method: :get do %>
+                            <i class="fas fa-edit btn-edit"></i>
+                        <% end %>
+                    </div>
+                    <div class="button">
+                        <%= link_to journal_entry_path(@journal, entry), method: :delete do %>
+                            <i class="fas fa-trash btn-edit"></i>
+                        <% end %>
+                    </div>
+                </div>
             </div>
         <% end %>
     </div>

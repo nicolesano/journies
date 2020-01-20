@@ -8,7 +8,7 @@ class CompletedDatesController < ApplicationController
     end
 
     def new
-        @completed_date = @habit.completed_date.buid(params[:completed_date])
+        @completed_date = @habit.completed_date.build(params[:completed_date])
     end
 
     def show
@@ -16,6 +16,8 @@ class CompletedDatesController < ApplicationController
 
     def create
         @completed_date = @habit.completed_dates.build(params[:completed_date])
+        @completed_date.date = DateTime.now
+        @parsed_date = Date.strptime("03/17/81", "%m/%d/%y")
         if @completed_date.save
             redirect_to journal_path(@journal)
         else

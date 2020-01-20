@@ -1,0 +1,7 @@
+<h1>Edit <%= @entry.title %></h1>
+
+<%= simple_form_for [@entry], url: journal_entry_path do |f| %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.submit "Finish entry", class: "btn" %>
+<% end %>
