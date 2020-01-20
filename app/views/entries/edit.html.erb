@@ -3,5 +3,6 @@
 <%= simple_form_for [@entry], url: journal_entry_path do |f| %>
     <%= f.input :title %>
     <%= f.input :content %>
-    <%= f.submit "Finish entry", class: "btn" %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Finish entry", class: "btn-submit" %>
 <% end %>

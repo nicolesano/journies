@@ -31,7 +31,7 @@ class EntriesController < ApplicationController
     def update
         @journal = Journal.find(params[:journal_id])
         @entry.journal = @journal
-        if @journal.entries.update(entry_params)
+        if @entry.update(entry_params)
             redirect_to journal_path(@journal)
         else
             render :edit
@@ -48,7 +48,7 @@ class EntriesController < ApplicationController
     private
 
     def entry_params
-        params.require(:entry).permit(:title, :content, :user_id, :journal_id)
+        params.require(:entry).permit(:title, :content, :user_id, :journal_id, :photo)
     end
 
     def set_entry

@@ -27,6 +27,11 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails', '8.6.5'
 gem "therubyracer", "~> 0.12"
+
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'carrierwave'
+gem 'cloudinary', require: false
+gem 'activestorage-cloudinary-service'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

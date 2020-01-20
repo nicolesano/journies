@@ -71,7 +71,7 @@
     <h3 class="section-header">Diary</h3>
 
     <div class="btn">
-        <%= link_to "Write new entry", new_journal_entry_path(@journal) %>
+        <%= link_to "Write today's entry", new_journal_entry_path(@journal) %>
     </div>
 
     <h4>Recent</h4>
@@ -81,7 +81,12 @@
             <div class="card">
                 <h5><%= entry.title %></h5>
                 <p><%= entry.created_at.strftime("%A %B %d, %Y") %></p>
-                <p><%= entry.content %></p>
+                <% if entry.photo.attached? %>
+                    <div class="entry-photo">
+                        <%= image_tag entry.photo  %>
+                    </div>
+                <% end %>
+                <p class="pt-3"><%= entry.content %></p>
                 <div class="edit-buttons d-flex justify-content-end">
                     <div class="button">
                         <%= link_to edit_journal_entry_path(@journal, entry), method: :get do %>
