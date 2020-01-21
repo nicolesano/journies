@@ -43,7 +43,7 @@
                         <% end %>
                         </div>
                         <div class="delete-button">
-                            <%= link_to journal_habit_path(@journal), method: :delete do %>
+                            <%= link_to journal_habit_path(@journal, habit), method: :delete do %>
                             <i class="fas fa-trash btn-edit"></i>
                         <% end %>
                         </div>
@@ -71,8 +71,8 @@
     <div class="card-wide">
         <h3 class="section-header">Diary</h3>
 
-        <div class="btn">
-            <%= link_to "Write today's entry", new_journal_entry_path(@journal) %>
+        <div class="create-new-entry">
+            <%= link_to "Write today's entry", new_journal_entry_path(@journal), class: "btn-submit" %>
         </div>
 
         <h4>Recent</h4>

@@ -21,3 +21,17 @@
     margin: 8px;
     border-radius: 50%;
 }
+
+.btn-submit, .btn-edit {
+    transition: all .2s;
+}
+
+.btn-submit:hover, .btn-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 4px rgba(0,0,0,.2);
+}
+
+.btn-submit:active, .btn-edit:active {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 4px rgba(0,0,0,.2);
+}
