@@ -6,11 +6,13 @@
     justify-content: space-around;
 }
 
-.card {
-    width: 20vw;
+.diary-entry {
+    width: 25vw;
     margin: 12px;
     padding: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .card-wide {
@@ -18,4 +20,10 @@
     width: 90%;
     padding: 8%;
     margin: 3%;
+    border-radius: 10px;
+}
+
+.entry-photo img {
+    width: 100%;
+    border-radius: 10px;
 }

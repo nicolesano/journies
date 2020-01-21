@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper container">
     <h1 id="journal-name"><%= @journal.name %></h1>
     <section class="card-wide habit">
         <h3 class="section-header">Habits</h3>
@@ -52,7 +52,7 @@
             <% end %>
         </div>
 
-        <div class="create-new-habit .d-flex flex-row">
+        <div class="create-new-habit .d-flex flex-row pt-5 pb-0">
             <h5>Create new habit</h5>
             <%= simple_form_for [@journal, @habit] do |f| %>
                 <%= f.input :name, label_html: { class: 'create-new-habit-name' }  %>
@@ -68,38 +68,40 @@
         </div>
     </section>
 
-    <h3 class="section-header">Diary</h3>
+    <div class="card-wide">
+        <h3 class="section-header">Diary</h3>
 
-    <div class="btn">
-        <%= link_to "Write today's entry", new_journal_entry_path(@journal) %>
-    </div>
+        <div class="btn">
+            <%= link_to "Write today's entry", new_journal_entry_path(@journal) %>
+        </div>
 
-    <h4>Recent</h4>
-    
-    <div class="card-container">
-        <% @journal.entries.last(8).reverse.each do |entry| %>
-            <div class="card">
-                <h5><%= entry.title %></h5>
-                <p><%= entry.created_at.strftime("%A %B %d, %Y") %></p>
-                <% if entry.photo.attached? %>
-                    <div class="entry-photo">
-                        <%= image_tag entry.photo  %>
-                    </div>
-                <% end %>
-                <p class="pt-3"><%= entry.content %></p>
-                <div class="edit-buttons d-flex justify-content-end">
-                    <div class="button">
-                        <%= link_to edit_journal_entry_path(@journal, entry), method: :get do %>
-                            <i class="fas fa-edit btn-edit"></i>
-                        <% end %>
-                    </div>
-                    <div class="button">
-                        <%= link_to journal_entry_path(@journal, entry), method: :delete do %>
-                            <i class="fas fa-trash btn-edit"></i>
-                        <% end %>
+        <h4>Recent</h4>
+        
+        <div class="card-container">
+            <% @journal.entries.last(8).reverse.each do |entry| %>
+                <div class="diary-entry">
+                    <h5><%= entry.title %></h5>
+                    <p><%= entry.created_at.strftime("%A %B %d, %Y") %></p>
+                    <% if entry.photo.attached? %>
+                        <div class="entry-photo">
+                            <%= image_tag entry.photo  %>
+                        </div>
+                    <% end %>
+                    <p class="pt-3"><%= entry.content %></p>
+                    <div class="edit-buttons d-flex justify-content-end">
+                        <div class="button">
+                            <%= link_to edit_journal_entry_path(@journal, entry), method: :get do %>
+                                <i class="fas fa-edit btn-edit"></i>
+                            <% end %>
+                        </div>
+                        <div class="button">
+                            <%= link_to journal_entry_path(@journal, entry), method: :delete do %>
+                                <i class="fas fa-trash btn-edit"></i>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <% end %>
+            <% end %>
+        </div>
     </div>
 </div>
