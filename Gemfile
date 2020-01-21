@@ -32,6 +32,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'carrierwave'
 gem 'cloudinary', require: false
 gem 'activestorage-cloudinary-service'
+
+gem 'webpacker', '~> 4.x'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

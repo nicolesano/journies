@@ -22,9 +22,3 @@
 //= require semantic-ui/dropdown
 //= require semantic_ui/semantic_ui
 //= require_tree .
-
-(function ($) {
-    $(document).on( 'turbolinks:load', function(){
-        $('.sortable').railsSortable();
-    });
-})(jQuery);
