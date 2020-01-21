@@ -33,7 +33,9 @@ gem 'carrierwave'
 gem 'cloudinary', require: false
 gem 'activestorage-cloudinary-service'
 
-gem 'webpacker', '~> 4.x'
+gem 'webpacker'
+
+gem 'bootstrap-sass'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
