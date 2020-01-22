@@ -10,15 +10,4 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require jquery
-//= require jquery_ujs
-//= require jquery-ui/widgets/sortable
-//= require rails_sortable
-//= require activestorage
-//= require turbolinks
-//= require semantic-ui
-//= require semantic-ui/modal
-//= require semantic-ui/dropdown
-//= require semantic_ui/semantic_ui
-//= require_tree .
+

@@ -14,8 +14,6 @@ dotenvFiles.forEach((dotenvFile) => {
 
 environment.plugins.prepend('Environment', new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(process.env))))
 
-const { environment } = require('@rails/webpacker')
-
 environment.plugins.prepend('Provide',
     new webpack.ProvidePlugin({
     $: 'jquery',

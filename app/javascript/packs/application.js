@@ -15,15 +15,20 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-require('packs/JSViewerLoader.js');
-
-require("jquery");
-require("bootstrap");
+//= require rails-ujs
+//= require jquery-ui/widgets/sortable
+//= require bootstrap-sprockets
+//= require activestorage
+//= require turbolinks
+//= require semantic-ui
+//= require semantic-ui/modal
+//= require semantic-ui/dropdown
+//= require semantic_ui/semantic_ui
+//= require rails_sortable
+//= require_tree .
 
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-
-import 'css/site';
 
 import 'jquery';
 import 'popper.js';
@@ -35,6 +40,16 @@ import 'bootstrap';
     });
 })(jQuery);
 
-import { loadDynamicBannerText } from '../components/banner';
-require('../components/banner');
+// import { loadDynamicBannerText } from '../components/banner';
+
+import Typed from 'typed.js';
+
+const loadDynamicBannerText = () => {
+    new Typed('#typed', {
+        strings: ["Bullet journalling with a kick"],
+        typeSpeed: 50,
+        loop: true
+    });
+}
+
 loadDynamicBannerText();
