@@ -43,7 +43,7 @@
                         <% end %>
                         </div>
                         <div class="delete-button">
-                            <%= link_to journal_habit_path(@journal, habit), method: :delete do %>
+                            <%= link_to journal_habit_path(@journal, habit), data: { confirm: "Are you sure?" }, method: :delete do %>
                             <i class="fas fa-trash btn-edit"></i>
                         <% end %>
                         </div>

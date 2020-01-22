@@ -52,6 +52,6 @@ class EntriesController < ApplicationController
     end
 
     def set_entry
-        @entry = Entry.find(params[:id])
+        @entry = Entry.find_by(params[:id])
     end
 end
