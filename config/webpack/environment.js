@@ -2,6 +2,8 @@ const { environment } = require('@rails/webpacker')
 const webpack = require('webpack')
 const dotenv = require('dotenv')
 
+environment.loaders.delete('nodeModules');
+
 const dotenvFiles = [
     `.env.${process.env.NODE_ENV}.local`,
     '.env.local',
