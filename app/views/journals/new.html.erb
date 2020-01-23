@@ -1,6 +1,8 @@
-<h1>Start journalling</h1>
+<div class="container pt-4">
+    <h1>Start journalling</h1>
 
-<%= simple_form_for [@journal] do |f| %>
-    <%= f.input :name %>
-    <%= f.submit "Create journal", class: "btn" %>
-<% end %>
+    <%= simple_form_for [@journal] do |f| %>
+        <%= f.input :name %>
+        <%= f.submit "Create journal", class: "btn-submit" %>
+    <% end %>
+</div>
