@@ -43,7 +43,7 @@
                         <% end %>
                         </div>
                         <div class="delete-button">
-                            <%= link_to journal_habit_path(@journal, habit), data: { confirm: "Are you sure?" }, method: :delete do %>
+                            <%= link_to journal_habit_path(@journal, habit), method: :delete do %>
                             <i class="fas fa-trash btn-edit"></i>
                         <% end %>
                         </div>
@@ -79,7 +79,7 @@
         
         <div class="card-container">
             <% @journal.entries.last(8).reverse.each do |entry| %>
-                <div class="diary-entry">
+                <div class="diary-entry d-flex flex-column">
                     <h5><%= entry.title %></h5>
                     <p><%= entry.created_at.strftime("%A %B %d, %Y") %></p>
                     <% if entry.photo.attached? %>
@@ -88,7 +88,7 @@
                         </div>
                     <% end %>
                     <p class="pt-3"><%= entry.content %></p>
-                    <div class="edit-buttons d-flex justify-content-end">
+                    <div class="edit-buttons d-flex justify-content-end mt-auto">
                         <div class="button">
                             <%= link_to edit_journal_entry_path(@journal, entry), method: :get do %>
                                 <i class="fas fa-edit btn-edit"></i>
