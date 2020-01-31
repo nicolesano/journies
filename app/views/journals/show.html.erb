@@ -32,20 +32,20 @@
                     <div class="status-column d-flex">
                         <div class="check">
                             <% if habit.completed_dates.exists? %>
-                            <i class="fas fa-check"></i>
-                        <% else %>
-                            <i class="fas fa-times"></i>
-                        <% end %>
+                                <i class="fas fa-check"></i>
+                            <% else %>
+                                <i class="fas fa-times"></i>
+                            <% end %>
                         </div>
                         <div class="edit-button">
                             <%= link_to journal_habit_completed_dates_path(@journal, habit), method: :post do %>
-                            <i class="fas fa-edit btn-edit"></i>
-                        <% end %>
+                                <i class="fas fa-edit btn-edit"></i>
+                            <% end %>
                         </div>
                         <div class="delete-button">
-                            <%= link_to journal_habit_path(@journal, habit), method: :delete do %>
-                            <i class="fas fa-trash btn-edit"></i>
-                        <% end %>
+                            <%= link_to journal_habit_path(@journal), method: :delete do %>
+                                <i class="fas fa-trash btn-edit"></i>
+                            <% end %>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                     <p class="pt-3"><%= entry.content %></p>
                     <div class="edit-buttons d-flex justify-content-end mt-auto">
                         <div class="button">
-                            <%= link_to edit_journal_entry_path(@journal, entry), method: :get do %>
+                            <%= link_to edit_journal_entry_path(@journal, entry) do %>
                                 <i class="fas fa-edit btn-edit"></i>
                             <% end %>
                         </div>
